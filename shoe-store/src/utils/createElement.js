@@ -1,7 +1,7 @@
 export function ce(
     name,
     {
-        className, children = [], events = {}, restAttr = {}
+        className, children = [], events = {}, restAttr = {}, innerText = {}
     }){
         const element = document.createElement(name);
         element.className = className;
@@ -13,6 +13,9 @@ export function ce(
         });
         Object.keys(restAttr).forEach((key)={
             element.setAttribute(key, restAttr[key]);
-        })
+        });
+        if(innerText){
+            element.innerText = innerText;
+        }
         return element;
     }
